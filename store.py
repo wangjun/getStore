@@ -145,8 +145,8 @@ class BaiduMap:
                 response = urllib2.urlopen(req)
                 the_page = response.read()
                 #print the_page
-            except urllib2.error, e:
-                print("readURL Error %d: %s" % (e.args[0], e.args[1]))
+            except:
+                print("find something error...")
 
             #the_page = ''
             print('(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num']))
