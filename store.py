@@ -23,7 +23,7 @@ class BaiduMap:
     """
     """
     def __init__(self, keyword):
-        self.keyword = keyword
+        self.keyword = keyword更新程序
         self.query = [
                 ('b', '(-1599062.039999999,811604.75;24779177.96,8168020.75)'),
                 ('c', '1'),
@@ -40,7 +40,7 @@ class BaiduMap:
                 ('wd2', '')
                  ]
         self.mapurl = 'http://map.baidu.com/'
-        self.file = open('%s.txt' % keyword, 'w')
+        # self.file = open('%s.txt' % keyword, 'w')
         self.count = 0
         self.count_c = 0
         self.total_num = 0
