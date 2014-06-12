@@ -124,22 +124,28 @@ class BaiduMap:
 
             _data = '%s\t%s\t%s\t%s\n' % (city['name'], c['name'], addr, tel)
             self.file.write(_data)
-	    data_in = {
-		'sname' : c['name'],
-                'address' : addr,
-		'city' : city['name'],
-		'form' : fenlei,
-		'avatar_large' : indoor_pano,
-                'beizhu' : tel
-	    }
-	    #print 
-	    print indoor_pano
-	    d = urllib.urlencode(data_in)
-	    #print d
-	    req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
-	    response = urllib2.urlopen(req)
-	    the_page = response.read()
-	    #print the_page
+
+	    	#print
+	    	#print indoor_pano
+
+	    try:
+	    	data_in = {
+            		'sname' : c['name'],
+            		'address' : addr,
+            		'city' : city['name'],
+            		'form' : fenlei,
+            		'avatar_large' : indoor_pano,
+            		'beizhu' : tel
+            	}
+            	d = urllib.urlencode(data_in)
+            	#print d
+            	req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
+            	response = urllib2.urlopen(req)
+                the_page = response.read()
+                #print the_page
+            except urllib2.Error,e:
+                 print "readURL Error %d: %s" % (e.args[0], e.args[1])
+            #the_page = ''
             print '(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num'])
 
     def get(self, city):
