@@ -23,7 +23,7 @@ class BaiduMap:
     """
     """
     def __init__(self, keyword):
-        self.keyword = keyword更新程序
+        self.keyword = keyword
         self.query = [
                 ('b', '(-1599062.039999999,811604.75;24779177.96,8168020.75)'),
                 ('c', '1'),
