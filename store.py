@@ -15,7 +15,7 @@ import types
 import urllib
 import urllib2
 
-reload(sys)
+#reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
@@ -259,11 +259,14 @@ if __name__ == '__main__':
     #print(list)
 
     for l in list:
-        print(l)
-        keyword = l['name']
-        fenlei = l['id']
-        baidumap = BaiduMap(keyword)
-        print('_' * 20)
-        print('CITY: %s' % baidumap.city.__len__())
-        print('DATA: %s' % baidumap.total_num)
-        baidumap.get_all()
+        try:
+            print(l)
+            keyword = l['name']
+            fenlei = l['id']
+            baidumap = BaiduMap(keyword)
+            print('_' * 20)
+            print('CITY: %s' % baidumap.city.__len__())
+            print('DATA: %s' % baidumap.total_num)
+            baidumap.get_all()
+        except:
+                print("find something error...")
