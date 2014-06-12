@@ -176,8 +176,94 @@ if __name__ == '__main__':
         keyword = '贸易'
         fenlei = 54
 
-    baidumap = BaiduMap(keyword)
-    print('_' * 20)
-    print('CITY: %s' % baidumap.city.__len__())
-    print('DATA: %s' % baidumap.total_num)
-    baidumap.get_all()
+    #baidumap = BaiduMap(keyword)
+    #print('_' * 20)
+    #print('CITY: %s' % baidumap.city.__len__())
+    #print('DATA: %s' % baidumap.total_num)
+    #baidumap.get_all()
+
+    list = [
+        {'name':'零售', 'id':54},
+        {'name':'贸易', 'id':54},
+        {'name':'传媒', 'id':54},
+        {'name':'酒类制造', 'id':39},
+        {'name':'饮料制造', 'id':39},
+        {'name':'酒类', 'id':39},
+        {'name':'饮料', 'id':39},
+        {'name':'酒店', 'id':52},
+        {'name':'餐饮', 'id':52},
+        {'name':'景点', 'id':51},
+        {'name':'旅游', 'id':51},
+        {'name':'白色家电', 'id':36},
+        {'name':'家电', 'id':36},
+        {'name':'金属制品', 'id':25},
+        {'name':'纺织制造', 'id':41},
+        {'name':'食品加工', 'id':40},
+        {'name':'食品制造', 'id':40},
+        {'name':'食品', 'id':40},
+        {'name':'医药器械服务', 'id':46},
+        {'name':'医疗器械服务', 'id':46},
+        {'name':'生物制品', 'id':45},
+        {'name':'中药', 'id':44},
+        {'name':'化学制药', 'id':44},
+        {'name':'西药', 'id':44},
+        {'name':'造纸', 'id':43},
+        {'name':'包装', 'id':43},
+        {'name':'印刷', 'id':43},
+        {'name':'试听器材', 'id':38},
+        {'name':'电力', 'id':47},
+        {'name':'燃气', 'id':47},
+        {'name':'公路', 'id':48},
+        {'name':'铁路', 'id':48},
+        {'name':'机场', 'id':48},
+        {'name':'港口', 'id':48},
+        {'name':'运输', 'id':48},
+        {'name':'计算机应用', 'id':56},
+        {'name':'通信服务', 'id':55},
+        {'name':'通讯设备', 'id':34},
+        {'name':'计算机设备', 'id':35},
+        {'name':'银行', 'id':53},
+        {'name':'保险', 'id':53},
+        {'name':'证券', 'id':53},
+        {'name':'建筑装饰', 'id':50},
+        {'name':'房地产开发', 'id':49},
+        {'name':'家用轻工', 'id':37},
+        {'name':'建筑材料', 'id':23},
+        {'name':'钢铁', 'id':22},
+        {'name':'化工新材料', 'id':21},
+        {'name':'化工合成材料', 'id':20},
+        {'name':'化学制品', 'id':19},
+        {'name':'基础化学', 'id':18},
+        {'name':'采掘服务', 'id':17},
+        {'name':'石油', 'id':3},
+        {'name':'煤炭', 'id':3},
+        {'name':'矿业', 'id':3},
+        {'name':'开采', 'id':3},
+        {'name':'通用机械', 'id':24},
+        {'name':'专用设备', 'id':24},
+        {'name':'交运设备服务', 'id':33},
+        {'name':'汽车零部件', 'id':31},
+        {'name':'汽车整车', 'id':30},
+        {'name':'光学', 'id':28},
+        {'name':'光电子', 'id':28},
+        {'name':'半导体', 'id':27},
+        {'name':'元件', 'id':27},
+        {'name':'电气设备', 'id':26},
+        {'name':'农产品加工', 'id':2},
+        {'name':'种植业', 'id':1},
+        {'name':'林木业', 'id':1},
+        {'name':'养殖业', 'id':1}
+
+    ]
+
+    #print(list)
+
+    for l in list:
+        print(l)
+        keyword = l['name']
+        fenlei = l['id']
+        baidumap = BaiduMap(keyword)
+        print('_' * 20)
+        print('CITY: %s' % baidumap.city.__len__())
+        print('DATA: %s' % baidumap.total_num)
+        baidumap.get_all()
