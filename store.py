@@ -70,7 +70,7 @@ class BaiduMap:
         data = self._fetch(self.query)
 
         if type(data['content']) is not types.ListType:
-            print 'keyworld error.'
+            print('keyworld error.')
             sys.exit()
 
         self.city = data['content']
@@ -146,10 +146,10 @@ class BaiduMap:
             the_page = response.read()
             #print the_page
         except urllib2.error, e:
-            print "readURL Error %d: %s" % (e.args[0], e.args[1])
+            print("readURL Error %d: %s" % (e.args[0], e.args[1]))
 
         #the_page = ''
-        print '(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num'])
+        print('(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num']))
 
     def get(self, city):
         self.count_c = 0
@@ -177,7 +177,7 @@ if __name__ == '__main__':
         fenlei = 54
 
     baidumap = BaiduMap(keyword)
-    print '_' * 20
-    print 'CITY: %s' % baidumap.city.__len__()
-    print 'DATA: %s' % baidumap.total_num
+    print('_' * 20)
+    print('CITY: %s' % baidumap.city.__len__())
+    print('DATA: %s' % baidumap.total_num)
     baidumap.get_all()
