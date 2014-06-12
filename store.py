@@ -132,12 +132,12 @@ class BaiduMap:
 
         try:
             data_in = {
-            		'sname' : c['name'],
-            		'address' : addr,
-            		'city' : city['name'],
-            		'form' : fenlei,
-            		'avatar_large' : indoor_pano,
-            		'beizhu' : tel
+                'sname' : c['name'],
+                'address' : addr,
+                'city' : city['name'],
+                'form' : fenlei,
+                'avatar_large' : indoor_pano,
+                'beizhu' : tel
             }
             d = urllib.urlencode(data_in)
             #print d
