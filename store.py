@@ -113,11 +113,13 @@ class BaiduMap:
                 tel = c['tel']
             else:
                 tel = ''
-	    if c.has_key('addr'):
+
+        if c.has_key('addr'):
                 addr = c['addr']
             else:
                 addr = ''
-	    if c.has_key('indoor_pano'):
+
+        if c.has_key('indoor_pano'):
                 indoor_pano = c['indoor_pano']
             else:
                 indoor_pano = ''
@@ -125,28 +127,29 @@ class BaiduMap:
             _data = '%s\t%s\t%s\t%s\n' % (city['name'], c['name'], addr, tel)
             self.file.write(_data)
 
-	    	#print
+            #print
 	    	#print indoor_pano
 
 	    try:
-	    	data_in = {
+            data_in = {
             		'sname' : c['name'],
             		'address' : addr,
             		'city' : city['name'],
             		'form' : fenlei,
             		'avatar_large' : indoor_pano,
             		'beizhu' : tel
-            	}
-            	d = urllib.urlencode(data_in)
-            	#print d
-            	req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
-            	response = urllib2.urlopen(req)
-                the_page = response.read()
-                #print the_page
-            except urllib2.Error,e:
-                 print "readURL Error %d: %s" % (e.args[0], e.args[1])
-            #the_page = ''
-            print '(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num'])
+            }
+            d = urllib.urlencode(data_in)
+            #print d
+            req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
+            response = urllib2.urlopen(req)
+            the_page = response.read()
+            #print the_page
+        except urllib2.error, e:
+            print "readURL Error %d: %s" % (e.args[0], e.args[1])
+
+        #the_page = ''
+        print '(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num'])
 
     def get(self, city):
         self.count_c = 0
@@ -168,10 +171,10 @@ class BaiduMap:
 if __name__ == '__main__':
     if sys.argv.__len__() > 1:
         keyword = sys.argv[1]
-	fenlei = sys.argv[2]
+        fenlei = sys.argv[2]
     else:
         keyword = '贸易'
-	fenlei = 54
+        fenlei = 54
 
     baidumap = BaiduMap(keyword)
     print '_' * 20
