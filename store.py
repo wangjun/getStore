@@ -130,25 +130,23 @@ class BaiduMap:
             #print
 	    	#print indoor_pano
 
-            try:
-                data_in = {
-                    'sname' : c['name'],
-                    'address' : addr,
-                    'city' : city['name'],
-                    'form' : fenlei,
-                    'avatar_large' : indoor_pano,
-                    'beizhu' : tel
-                }
-                d = urllib.urlencode(data_in)
-                #print d
-                req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
-                response = urllib2.urlopen(req)
-                the_page = response.read()
-                #print the_page
-            except:
-                print("find something error...")
 
-            #the_page = ''
+            data_in = {
+                'sname' : c['name'],
+                'address' : addr,
+                'city' : city['name'],
+                'form' : fenlei,
+                'avatar_large' : indoor_pano,
+                'beizhu' : tel
+            }
+            d = urllib.urlencode(data_in)
+            #print d
+            req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
+            response = urllib2.urlopen(req)
+            the_page = response.read()
+            #print the_page
+
+            # the_page = ''
             print('(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num']))
 
     def get(self, city):
@@ -156,9 +154,11 @@ class BaiduMap:
         pages = abs(-city['num'] / 10)
         for page in range(0, pages):
             data = self._get_data(city, page)
-            if data.has_key('content'):
-                self._save(data['content'], city)
-
+            try:
+                if data.has_key('content'):
+                    self._save(data['content'], city)
+            except Exception as e:
+                print(e)
 
     def get_all(self):
         for city in self.city:
@@ -268,5 +268,5 @@ if __name__ == '__main__':
             print('CITY: %s' % baidumap.city.__len__())
             print('DATA: %s' % baidumap.total_num)
             baidumap.get_all()
-        except:
-            print("find something error...")
+        except Exception as e:
+            print(e)
