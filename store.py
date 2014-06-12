@@ -115,22 +115,22 @@ class BaiduMap:
                 tel = ''
 
         if c.has_key('addr'):
-                addr = c['addr']
-            else:
-                addr = ''
+            addr = c['addr']
+        else:
+            addr = ''
 
         if c.has_key('indoor_pano'):
-                indoor_pano = c['indoor_pano']
-            else:
-                indoor_pano = ''
+            indoor_pano = c['indoor_pano']
+        else:
+            indoor_pano = ''
 
-            _data = '%s\t%s\t%s\t%s\n' % (city['name'], c['name'], addr, tel)
-            self.file.write(_data)
+            #_data = '%s\t%s\t%s\t%s\n' % (city['name'], c['name'], addr, tel)
+            #self.file.write(_data)
 
             #print
 	    	#print indoor_pano
 
-	    try:
+        try:
             data_in = {
             		'sname' : c['name'],
             		'address' : addr,
