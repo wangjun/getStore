@@ -156,9 +156,11 @@ class BaiduMap:
         pages = abs(-city['num'] / 10)
         for page in range(0, pages):
             data = self._get_data(city, page)
-            if data.has_key('content'):
-                self._save(data['content'], city)
-
+            try:
+                if data.has_key('content'):
+                    self._save(data['content'], city)
+            except:
+                print("find something error...")
 
     def get_all(self):
         for city in self.city:
