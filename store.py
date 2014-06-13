@@ -141,7 +141,7 @@ class BaiduMap:
                 }
                 d = urllib.urlencode(data_in)
                 #print d
-                req = urllib2.Request("http://localhost/app/get/store.php", d)
+                req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
                 response = urllib2.urlopen(req)
                 the_page = response.read()
                 #print the_page
@@ -150,7 +150,6 @@ class BaiduMap:
 
             #the_page = ''
             print('(%s/%s) %s %s[%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num']))
-            #time.sleep(1)
 
     def get(self, city):
         self.count_c = 0
@@ -184,6 +183,26 @@ if __name__ == '__main__':
     #baidumap.get_all()
 
     list = [
+        {'name':'零售', 'id':54},
+        {'name':'贸易', 'id':54},
+        {'name':'传媒', 'id':54},
+        {'name':'酒类制造', 'id':39},
+        {'name':'饮料制造', 'id':39},
+        {'name':'酒类', 'id':39},
+        {'name':'饮料', 'id':39},
+        {'name':'酒店', 'id':52},
+        {'name':'餐饮', 'id':52},
+        {'name':'景点', 'id':51},
+        {'name':'旅游', 'id':51},
+        {'name':'白色家电', 'id':36},
+        {'name':'家电', 'id':36},
+        {'name':'金属制品', 'id':25},
+        {'name':'纺织制造', 'id':41},
+        {'name':'食品加工', 'id':40},
+        {'name':'食品制造', 'id':40},
+        {'name':'食品', 'id':40},
+        {'name':'医药器械服务', 'id':46},
+        {'name':'医疗器械服务', 'id':46},
         {'name':'生物制品', 'id':45},
         {'name':'中药', 'id':44},
         {'name':'化学制药', 'id':44},
@@ -233,27 +252,7 @@ if __name__ == '__main__':
         {'name':'农产品加工', 'id':2},
         {'name':'种植业', 'id':1},
         {'name':'林木业', 'id':1},
-        {'name':'养殖业', 'id':1},
-        {'name':'零售', 'id':54},
-        {'name':'贸易', 'id':54},
-        {'name':'传媒', 'id':54},
-        {'name':'酒类制造', 'id':39},
-        {'name':'饮料制造', 'id':39},
-        {'name':'酒类', 'id':39},
-        {'name':'饮料', 'id':39},
-        {'name':'酒店', 'id':52},
-        {'name':'餐饮', 'id':52},
-        {'name':'景点', 'id':51},
-        {'name':'旅游', 'id':51},
-        {'name':'白色家电', 'id':36},
-        {'name':'家电', 'id':36},
-        {'name':'金属制品', 'id':25},
-        {'name':'纺织制造', 'id':41},
-        {'name':'食品加工', 'id':40},
-        {'name':'食品制造', 'id':40},
-        {'name':'食品', 'id':40},
-        {'name':'医药器械服务', 'id':46},
-        {'name':'医疗器械服务', 'id':46}
+        {'name':'养殖业', 'id':1}
 
     ]
 
