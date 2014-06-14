@@ -149,7 +149,7 @@ class BaiduMap:
                 print(e)
 
             #the_page = ''
-            print('(%s/%s) %s %s[%s/%s][%s(%s)%s/%s]' % (self.count, self.total_num, city['name'], the_page, self.count_c, city['num'], keyword, fenlei, x, list.__len__()))
+            print('[%s(%s) %s/%s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, list.__len__(), self.count, self.total_num, city['name'], self.count_c, city['num'], the_page))
 
     def get(self, city):
         self.count_c = 0
