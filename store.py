@@ -14,6 +14,7 @@ import time
 import types
 import urllib
 import urllib2
+import random
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -142,7 +143,7 @@ class BaiduMap:
                     }
                     d = urllib.urlencode(data_in)
                     #print d
-                    req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
+                    req = urllib2.Request("http://localhost/app/get/store.php", d)
                     response = urllib2.urlopen(req)
                     the_page = response.read()
                     #print the_page
@@ -167,9 +168,12 @@ class BaiduMap:
 
     def get_all(self):
         for city in self.city:
-            self.get(city)
+            if city['name'].__len__() >= 3:
+                self.get(city)
+            else:
+                break
 
-        self.file.close()
+        #self.file.close()
 
 
 
@@ -265,11 +269,11 @@ if __name__ == '__main__':
     #print(list)
     x = 0
 
-    for l in list:
+    while True:
         try:
-            print(l)
-            keyword = l['name']
-            fenlei = l['id']
+            print(random.choice(list))
+            keyword = random.choice(list)['name']
+            fenlei = random.choice(list)['id']
             baidumap = BaiduMap(keyword)
             print('_' * 20)
             print('CITY: %s' % baidumap.city.__len__())
