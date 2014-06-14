@@ -130,26 +130,29 @@ class BaiduMap:
             #print
 	    	#print indoor_pano
 
-            try:
-                data_in = {
-                    'sname' : c['name'],
-                    'address' : addr,
-                    'city' : city['name'],
-                    'form' : fenlei,
-                    'avatar_large' : indoor_pano,
-                    'beizhu' : tel
-                }
-                d = urllib.urlencode(data_in)
-                #print d
-                req = urllib2.Request("http://localhost/app/get/store.php", d)
-                response = urllib2.urlopen(req)
-                the_page = response.read()
-                #print the_page
-            except Exception as e:
-                print(e)
+            if city['name'].__len__() >= 3:
+                try:
+                    data_in = {
+                        'sname' : c['name'],
+                        'address' : addr,
+                        'city' : city['name'],
+                        'form' : fenlei,
+                        'avatar_large' : indoor_pano,
+                        'beizhu' : tel
+                    }
+                    d = urllib.urlencode(data_in)
+                    #print d
+                    req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
+                    response = urllib2.urlopen(req)
+                    the_page = response.read()
+                    #print the_page
+                except Exception as e:
+                    print(e)
 
-            #the_page = ''
-            print('[%s(%s) %s/%s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, list.__len__(), self.count, self.total_num, city['name'], self.count_c, city['num'], the_page))
+                #the_page = ''
+                print('[%s(%s) %s/%s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, list.__len__(), self.count, self.total_num, city['name'], self.count_c, city['num'], the_page))
+            else:
+                print('[%s(%s) %s/%s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, list.__len__(), self.count, self.total_num, city['name'], self.count_c, city['num'], "city lenght is error..."))
 
     def get(self, city):
         self.count_c = 0
