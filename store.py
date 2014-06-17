@@ -143,7 +143,7 @@ class BaiduMap:
                     }
                     d = urllib.urlencode(data_in)
                     #print d
-                    req = urllib2.Request("http://localhost/app/get/store.php", d)
+                    req = urllib2.Request("http://" + sys.argv[1] + "/app/get/store.php", d)
                     response = urllib2.urlopen(req)
                     the_page = response.read()
                     #print the_page
@@ -151,9 +151,9 @@ class BaiduMap:
                     print(e)
 
                 #the_page = ''
-                print('[%s(%s) %s/%s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, list.__len__(), self.count, self.total_num, city['name'], self.count_c, city['num'], the_page))
+                print('[%s(%s) %s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, self.count, self.total_num, city['name'], self.count_c, city['num'], the_page))
             else:
-                print('[%s(%s) %s/%s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, list.__len__(), self.count, self.total_num, city['name'], self.count_c, city['num'], "city lenght is error..."))
+                print('[%s(%s) %s]--(%s/%s) %s[%s/%s] %s' % (keyword, fenlei, x, self.count, self.total_num, city['name'], self.count_c, city['num'], "city lenght is error..."))
 
     def get(self, city):
         self.count_c = 0
@@ -171,19 +171,20 @@ class BaiduMap:
             if city['name'].__len__() >= 3:
                 self.get(city)
             else:
-                break
+		print("%s lenght is error..." % (city['name']))
+                continue
 
         #self.file.close()
 
 
 
 if __name__ == '__main__':
-    if sys.argv.__len__() > 1:
-        keyword = sys.argv[1]
-        fenlei = sys.argv[2]
-    else:
-        keyword = '贸易'
-        fenlei = 54
+    #if sys.argv.__len__() > 1:
+    #    keyword = sys.argv[1]
+    #    fenlei = sys.argv[2]
+    #else:
+    #    keyword = '贸易'
+    #    fenlei = 54
 
     #baidumap = BaiduMap(keyword)
     #print('_' * 20)
