@@ -143,7 +143,7 @@ class BaiduMap:
                     }
                     d = urllib.urlencode(data_in)
                     #print d
-                    req = urllib2.Request("http://" + sys.argv[1] + "/app/get/store.php", d)
+                    req = urllib2.Request("http://ireoo.com/app/get/store.php", d)
                     response = urllib2.urlopen(req)
                     the_page = response.read()
                     #print the_page
